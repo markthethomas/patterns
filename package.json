@@ -1,0 +1,22 @@
+{
+  "name": "patterns",
+  "version": "1.0.0",
+  "description": "design patterns, implemented in different languages",
+  "main": "javascript/main.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markthethomas/patterns.git"
+  },
+  "keywords": [
+    "patterns"
+  ],
+  "author": "Mark Thomas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/markthethomas/patterns/issues"
+  },
+  "homepage": "https://github.com/markthethomas/patterns#readme"
+}
