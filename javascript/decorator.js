@@ -5,11 +5,11 @@ const test = require('tape');
 // Concerned with extension of preexisting objects
 // Useful for going from Hobbit to HobbitWithSword and similar w/o really subclassing
 class Pokemon {
-  constructor(name, type){
+  constructor(name, type) {
     this.name = name || 'Pikachu';
     this.type = type || 'Generic';
   }
-  attack(){
+  attack() {
     console.log(`I, <${this.name}>, am attacking!!!`);
   }
 }
@@ -17,22 +17,26 @@ class Pokemon {
 // Our new object
 let Chuuu = new Pokemon();
 
-
 // Let's decorate Chuuu ()
-Chuuu.attack = function () {
-  this.attacked = true;
-  console.log(`I, <${this.name}>, am attacking!!!`);
-  console.log('KAPOW');
-  if (this.attacked) {
-    console.log('I attacked :]');
+Chuuu.attack = function() {
+    this.attacked = true;
+    console.log(`I, <${this.name}>, am attacking!!!`);
+    console.log('KAPOW');
+    if (this.attacked) {
+      console.log('I attacked :]');
+    }
   }
-}
+  // expect output!
 
-Chuuu.attack(); // expect output!
+test('simplistic decorator example', (t) => {
+  Chuuu.attack();
+  t.ok(Chuuu.attacked, 'It should have attacked and added an attacked property');
+  t.end();
+})
 
 // Let's try another example w/ more robustness
 class Macbook {
-  constructor(){
+  constructor() {
     this.cost = () => 1800;
     this.screensize = () => 15;
   }
@@ -42,14 +46,14 @@ class Macbook {
 function addMemory(macbook) {
   let baseCost = macbook.cost();
   // We are 'decorating' the method w/ new functionality
-  macbook.cost = function () {
+  macbook.cost = function() {
     return baseCost + 400;
   }
 }
 
 function appleCare(macbook) {
   let baseCost = macbook.cost();
-  macbook.cost = function () {
+  macbook.cost = function() {
     return baseCost + 200;
   }
 }

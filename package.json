@@ -4,7 +4,7 @@
   "description": "design patterns, implemented in different languages",
   "main": "javascript/main.js",
   "scripts": {
-    "test": "node javascript/*.js"
+    "test": "node javascript/*.js | faucet"
   },
   "repository": {
     "type": "git",
