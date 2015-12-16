@@ -4,7 +4,7 @@
   "description": "design patterns, implemented in different languages",
   "main": "javascript/main.js",
   "scripts": {
-    "test": "npm test"
+    "test": "node javascript/*.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,9 @@
     "webpack": "^1.12.9"
   },
   "devDependencies": {
+    "babel-eslint": "^4.1.6",
+    "eslint": "^1.10.3",
+    "tape": "^4.2.2",
     "webpack-dev-server": "^1.14.0"
   }
 }

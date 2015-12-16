@@ -1,5 +1,7 @@
 'use strict';
 
+const test = require('tape');
+
 // Concerned with extension of preexisting objects
 // Useful for going from Hobbit to HobbitWithSword and similar w/o really subclassing
 class Pokemon {
@@ -28,8 +30,7 @@ Chuuu.attack = function () {
 
 Chuuu.attack(); // expect output!
 
-// Let's try another example
-
+// Let's try another example w/ more robustness
 class Macbook {
   constructor(){
     this.cost = () => 1800;
@@ -37,5 +38,38 @@ class Macbook {
   }
 }
 
-let myMacBook = new Macbook();
-console.log(myMacBook);
+// a decorator
+function addMemory(macbook) {
+  let baseCost = macbook.cost();
+  // We are 'decorating' the method w/ new functionality
+  macbook.cost = function () {
+    return baseCost + 400;
+  }
+}
+
+function appleCare(macbook) {
+  let baseCost = macbook.cost();
+  macbook.cost = function () {
+    return baseCost + 200;
+  }
+}
+
+function upgradeCPU(macbook) {
+  let baseCost = macbook.cost();
+  macbook.cost = function() {
+    return baseCost + 600;
+  }
+}
+
+
+test('(more) advanced decorator usage', (t) => {
+  let myMacBook = new Macbook();
+  // Run the decorators
+  addMemory(myMacBook);
+  upgradeCPU(myMacBook);
+  appleCare(myMacBook);
+
+  t.equals(myMacBook.screensize(), 15, 'The screensize method should remain the same since we never touched it');
+  t.equals(myMacBook.cost(), 3000, 'We can now use the decorated method #cost(), which should give us a larger overall total');
+  t.end();
+})
