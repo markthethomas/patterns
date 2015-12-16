@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/markthethomas/patterns/issues"
   },
-  "homepage": "https://github.com/markthethomas/patterns#readme"
+  "homepage": "https://github.com/markthethomas/patterns#readme",
+  "dependencies": {
+    "webpack": "^1.12.9"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^1.14.0"
+  }
 }
