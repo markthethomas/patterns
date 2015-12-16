@@ -1,9 +1,30 @@
+---
 engines:
-  duplication:
+  csslint:
     enabled: true
+  duplication:
     config:
       languages:
         - ruby
         - python
         - go
         - javascript
+    enabled: true
+  eslint:
+    enabled: true
+  gofmt:
+    enabled: true
+  golint:
+    enabled: true
+  nodesecurity:
+    enabled: true
+  pep8:
+    enabled: true
+  rubocop:
+    enabled: true
+languages:
+  Go: true
+  JavaScript: true
+  PHP: true
+  Python: true
+  Ruby: true
